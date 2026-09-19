@@ -224,7 +224,9 @@ All panels are anchored to the same character sheet.
 
 ![Beat 11 panel 3](https://d8j0ntlcm91z4.cloudfront.net/user_3CQ3SniOW74lIaBiTsI2ZhcNhLT/hf_20260919_064307_46abbdb9-833c-42cb-9edd-34041224879f.png)
 
-**11.4 Wide full body, swaggering** — panel pending
+**11.4 Wide full body, swaggering**
+
+![Beat 11 panel 4](https://d8j0ntlcm91z4.cloudfront.net/user_3CQ3SniOW74lIaBiTsI2ZhcNhLT/hf_20260919_065844_564cb0d0-da7a-45de-90e5-f417f1b90b7e.png)
 
 ## Beat 12 — 1:26-1:37 — Conflict — Over-the-shoulder
 
@@ -330,7 +332,9 @@ All panels are anchored to the same character sheet.
 
 "Wedding special. Tonight I show you real art."
 
-**17.1 Close on Muhire, the paper twist raised** — panel pending
+**17.1 Close on Muhire, the paper twist raised**
+
+![Beat 17 panel 1](https://d8j0ntlcm91z4.cloudfront.net/user_3CQ3SniOW74lIaBiTsI2ZhcNhLT/hf_20260919_065844_b799f682-5182-4945-beaa-53faeeb127ee.png)
 
 **17.2 Close on Gasuka, eyes dropping**
 
