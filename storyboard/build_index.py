@@ -59,46 +59,51 @@ BEATS = [
   ["Bird's-eye, alone beside the bench","Extreme wide, lone figure, huge empty space","Extreme wide, the others walking away","Bird's-eye, seated alone with the open cuffs"]),
 ]
 
-urls = {}
-with open(os.path.join(os.path.dirname(__file__), "urls.tsv")) as fh:
-    for line in fh:
-        line = line.strip()
-        if not line:
-            continue
-        key, url = line.split("\t", 1)
-        urls[key] = url
+def main():
+    urls = {}
+    with open(os.path.join(os.path.dirname(__file__), "urls.tsv")) as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            key, url = line.split("\t", 1)
+            urls[key] = url
 
-out = ["# Panel Index", "",
-       "108 panels, four per beat. The camera angle is fixed per beat by the",
-       "emotion rule in `storyboard.md`; only the shot size changes inside a beat.",
-       "All panels are anchored to the same character sheet.", "",
-       "## Character anchor sheet", ""]
-if "anchor" in urls:
-    out.append(f"![Character anchor sheet]({urls['anchor']})")
-    out.append("")
+    out = ["# Panel Index", "",
+           "108 panels, four per beat. The camera angle is fixed per beat by the",
+           "emotion rule in `storyboard.md`; only the shot size changes inside a beat.",
+           "All panels are anchored to the same character sheet.", "",
+           "## Character anchor sheet", ""]
+    if "anchor" in urls:
+        out.append(f"![Character anchor sheet]({urls['anchor']})")
+        out.append("")
 
-missing = []
-for num, time, line, emotion, angle, shots in BEATS:
-    out.append(f"## Beat {num:02d} — {time} — {emotion} — {angle}")
-    out.append("")
-    out.append(f"{line}")
-    out.append("")
-    for i, shot in enumerate(shots, start=1):
-        key = f"{num}{i:02d}"
-        url = urls.get(key)
-        if url:
-            out.append(f"**{num:02d}.{i} {shot}**")
-            out.append("")
-            out.append(f"![Beat {num:02d} panel {i}]({url})")
-            out.append("")
-        else:
-            missing.append(key)
-            out.append(f"**{num:02d}.{i} {shot}** — panel pending")
-            out.append("")
+    missing = []
+    for num, time, line, emotion, angle, shots in BEATS:
+        out.append(f"## Beat {num:02d} — {time} — {emotion} — {angle}")
+        out.append("")
+        out.append(f"{line}")
+        out.append("")
+        for i, shot in enumerate(shots, start=1):
+            key = f"{num}{i:02d}"
+            url = urls.get(key)
+            if url:
+                out.append(f"**{num:02d}.{i} {shot}**")
+                out.append("")
+                out.append(f"![Beat {num:02d} panel {i}]({url})")
+                out.append("")
+            else:
+                missing.append(key)
+                out.append(f"**{num:02d}.{i} {shot}** — panel pending")
+                out.append("")
 
-with open(os.path.join(os.path.dirname(__file__), "panels.md"), "w") as fh:
-    fh.write("\n".join(out).rstrip() + "\n")
+    with open(os.path.join(os.path.dirname(__file__), "panels.md"), "w") as fh:
+        fh.write("\n".join(out).rstrip() + "\n")
 
-print(f"panels written: {sum(1 for _ in BEATS) * 4 - len(missing)}/108")
-if missing:
-    print("missing:", ", ".join(missing))
+    print(f"panels written: {sum(1 for _ in BEATS) * 4 - len(missing)}/108")
+    if missing:
+        print("missing:", ", ".join(missing))
+
+
+if __name__ == "__main__":
+    main()
